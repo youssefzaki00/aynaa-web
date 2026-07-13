@@ -285,18 +285,8 @@ const StepPage = async ({
 export default StepPage;
 
 export function generateStaticParams() {
-  return Object.keys(stepData).flatMap((device) => {
-    const steps = Object.keys(stepData[device as deviceName] || {});
-
-    if (steps.length < 15) {
-      for (let i = steps.length + 1; i <= 15; i++) {
-        steps.push(`step${i}`);
-      }
-    }
-
-    return steps.map((step) => ({
-      device,
-      step,
-    }));
-  });
+  return Object.keys(stepData.router).map((step) => ({
+    device: "router",
+    step,
+  }));
 }

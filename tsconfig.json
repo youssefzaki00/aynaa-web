@@ -34,7 +34,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/protection-already-applied",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [

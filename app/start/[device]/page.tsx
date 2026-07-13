@@ -1,7 +1,7 @@
 import { deviceName } from "@/app/deviceTypes";
 import { redirect } from "next/navigation";
 import setupGuideData, { SetupGuideData } from "../setupGuideData";
-import { deviceConfigs } from "./_components/deviceConfig";
+import { getDeviceConfig } from "./_components/deviceConfig";
 import DeviceDownloadPage from "./_components/DeviceDownloadPage";
 import deviceData, { deviceParams } from "./deviceData";
 
@@ -17,7 +17,7 @@ async function Page({
   }
   const setupGuide: SetupGuideData = setupGuideData;
   if (dev.device === "windows" || dev.device === "android") {
-    const config = deviceConfigs[dev.device];
+    const config = getDeviceConfig(dev.device);
     if (config) {
       return (
         <DeviceDownloadPage

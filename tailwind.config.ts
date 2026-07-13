@@ -27,9 +27,6 @@ const config: Config = {
         "home-hero": "url('/home/1.webp')",
         "home-hero2": "url('/home/2.webp')",
         "home-hero3": "url('/home/3.webp')",
-        "blog-image1": "url('/blog/1.webp')",
-        "blog-image2": "url('/blog/2.webp')",
-        "blog-image3": "url('/blog/3.webp')",
         "light-gradient": "linear-gradient(to right, #FFFFFF, #DADADA)",
       },
       fontSize: {

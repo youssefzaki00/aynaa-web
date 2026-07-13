@@ -22,8 +22,8 @@ export default function DeviceDownloadPage({
   setupGuide,
   deviceConfig,
 }: DeviceDownloadPageProps) {
-  const otherDevices = setupGuide.devices.filter(
-    (d) => !d.soon && deviceConfig.otherDevicesFilter(d.device)
+  const otherDevices = setupGuide.devices.filter((d) =>
+    deviceConfig.otherDevicesFilter(d.device)
   );
 
   return (

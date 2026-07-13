@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function CongratulationsPage() {
   const setupGuide: SetupGuideData = setupGuideData;
   const otherDevices = setupGuide.devices.filter(
-    (device) => !device.soon && ["windows", "android"].includes(device.device)
+    (device) => ["windows", "android"].includes(device.device)
   );
 
   return (

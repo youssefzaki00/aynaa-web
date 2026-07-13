@@ -1,10 +1,5 @@
-export type deviceName = "windows" | "linux" | "router" | "android" | "ios";
+export type deviceName = "windows" | "router" | "android";
 
 export interface deviceParams {
-  device: deviceName;
-  soon?: true;
-  embeddedVideo?: {
-    title: string;
-    src: string;
-  };
+	device: deviceName;
 }

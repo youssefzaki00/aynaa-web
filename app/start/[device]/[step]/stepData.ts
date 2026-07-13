@@ -1,43 +1,25 @@
-import { deviceParams } from "@/app/deviceTypes";
 import routerSteps from "./routerSteps";
-import windowsSteps from "./windowsSteps";
-import androidSteps from "./androidSteps";
 
-export type stepName = "step1" | "step2" | "step3" | "step4";
+export type stepName = "step1" | "step2" | "step3";
 export type stepParam = { step: stepName };
 
-const stepData: deviceSteps = {
-  router: routerSteps,
-  windows: windowsSteps,
-  android: androidSteps,
+const stepData = {
+	router: routerSteps,
 };
 
 export default stepData;
 
-export interface stepParams extends deviceParams {
-  step: stepName;
-  devicesSteps: deviceSteps[];
-}
-
-export type deviceSteps = {
-  router?: Steps;
-  windows?: Steps;
-  android?: Steps;
-  linux?: Steps;
-  ios?: Steps;
+export type Step = {
+	type: "text" | "screenshot" | "link";
+	data:
+		| string
+		| number
+		| {
+				href: string;
+				text: string;
+		  };
 };
 
 export type Steps = {
-  [keys: string]: Step[];
-};
-
-export type Step = {
-  type: "text" | "screenshot" | "link";
-  data:
-    | string
-    | number
-    | {
-        href: string;
-        text: string;
-      };
+	[keys: string]: Step[];
 };

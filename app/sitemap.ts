@@ -29,12 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: `${BASE}/protection-already-applied`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
       url: `${BASE}/setupvalues`,
       lastModified: new Date(),
       changeFrequency: "monthly",
