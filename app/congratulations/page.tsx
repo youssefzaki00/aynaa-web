@@ -1,6 +1,6 @@
 import setupGuideData, {
   genSetupGuideData,
-} from "@/app/setupguide/setupGuideData";
+} from "@/app/start/setupGuideData";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";
 import { CircleCheckBig, MessageSquareText, Shield } from "lucide-react";
 import Link from "next/link";

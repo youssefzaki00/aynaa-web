@@ -5,7 +5,7 @@ import { genProps } from "../[gen]/genData";
 function GenCard({ gen, ar, description, soon }: genProps) {
   return (
     <Link
-      href={`/${gen === "gen2" ? "commingSoon" : "setupguide"}`}
+      href={`/${gen === "gen2" ? "commingSoon" : "start"}`}
       className={`relative group p-6 lg:py-8 lg:px-12 duration-300 transform border border-gray-300 rounded-2xl shadow-lg flex flex-col justify-between text-center cursor-pointer transition-all
         ${
           soon

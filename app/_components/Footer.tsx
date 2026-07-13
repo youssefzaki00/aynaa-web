@@ -55,7 +55,7 @@ const Footer = () => {
         },
         {
           text: "الحماية",
-          clickHandler: () => router.push("/setupguide"),
+          clickHandler: () => router.push("/start"),
         },
         {
           text: "ادعمنا",

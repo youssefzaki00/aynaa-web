@@ -13,7 +13,7 @@ export default function YourChildren() {
         </p>
         <LinkButton
           className="min-w-full md:min-w-0"
-          link="/setupguide"
+          link="/start"
           content={
             <>
               <p>طريقة التفعيل</p> <ArrowLeft size={20} className="mt-1" />

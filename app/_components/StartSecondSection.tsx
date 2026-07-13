@@ -20,7 +20,7 @@ const deviceCards: DeviceCardData[] = [
     description:
       "فعِّل الحماية على موبايلك. التطبيق يمنع المواقع الإباحية والضارة وبيشتغل في الخلفية بدون ما يبطئ الجهاز أو يستهلك البطارية.",
     iconPath: "/devices/android.svg",
-    link: "/setupguide/android",
+    link: "/start/android",
   },
   {
     device: "router",
@@ -28,7 +28,7 @@ const deviceCards: DeviceCardData[] = [
     description:
       "سيطر على شبكة البيت من المصدر. بمجرد تفعيل الحماية على الراوتر، أي جهاز متصل بالواي فاي  موبايل أو كمبيوتر بيكون محمي تلقائيًا",
     iconPath: "/devices/router.svg",
-    link: "/setupguide/router",
+    link: "/start/router",
   },
   {
     device: "windows",
@@ -36,7 +36,7 @@ const deviceCards: DeviceCardData[] = [
     description:
       "خليك مطمّن على كمبيوترك. النظام يمنع المواقع الإباحية والبرمجيات الضارة في المتصفحات كلها، ويشتغل بهدوء في الخلفية بدون ما يعيق شغلك أو تصفّحك.",
     iconPath: "/devices/windows.svg",
-    link: "/setupguide/windows",
+    link: "/start/windows",
   },
 ];
 

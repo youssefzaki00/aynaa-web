@@ -57,7 +57,7 @@ export default function EnterYourNumber({
 
 			// Optional: Redirect after successful submission
 			setTimeout(() => {
-				router.push("/setupguide/router");
+				router.push("/start/router");
 			}, 1500);
 		} catch (error) {
 			setSubmitStatus("error");

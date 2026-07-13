@@ -14,7 +14,7 @@ function Header() {
   const navLinks = [
     {
       label: "الحماية",
-      href: "/setupguide",
+      href: "/start",
     },
     {
       label: "ادعمنا",

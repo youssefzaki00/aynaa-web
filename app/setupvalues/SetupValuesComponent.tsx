@@ -48,7 +48,7 @@ const SetupValuesComponent = () => {
           <div className="bottom-0 left-0 right-0 absolute px-6 sm:px-10 py-6">
             <LinkButton
               className="min-w-full"
-              link="/setupguide"
+              link="/start"
               content={
                 <>
                   <p>فعّل الحماية</p>

@@ -3,6 +3,7 @@
 import HeroSection from "./_components/HeroSection";
 import OneVideo from "./_components/OneVideo";
 import YourChildren from "./_components/YourChildren";
+import FaqSection from "./_components/FaqSection";
 import SetupValuesComponent from "./setupvalues/SetupValuesComponent";
 // import { useState } from "react";
 // import Explanation from "./_components/Explanation";
@@ -27,6 +28,9 @@ export default function Home() {
 
       {/* One video */}
       <OneVideo />
+
+      {/* FAQ */}
+      <FaqSection />
 
       {/* {
         <form action="/support_us/pay" method="post" className="bg-white py-24">

@@ -24,7 +24,7 @@ export default function NextSteps({ isOpen, close, onClose }: NextStepsProps) {
 
 					<div className="flex flex-col sm:flex-row justify-around w-full items-center gap-4 sm:gap-6 md:gap-8">
 						<Link
-							href="/setupguide"
+							href="/start"
 							className="w-full sm:w-auto px-4 py-3 sm:py-4 text-center text-sm sm:text-base md:text-lg rounded-md text-white bg-red-700"
 						>
 							فعلها على جهاز آخر

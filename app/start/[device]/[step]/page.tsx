@@ -86,7 +86,7 @@ const StepPage = ({
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-4">
           <Link
-            href={`/setupguide/${params.device}`}
+            href={`/start/${params.device}`}
             className="font-normal text-[22px] text-[#D43820] leading-[1.563] hover:opacity-80 transition-opacity"
           >
             {deviceNames[params.device] || params.device}
@@ -293,7 +293,7 @@ const StepPage = ({
           {/* Previous Button */}
           {currentStep > 1 ? (
             <Link
-              href={`/setupguide/${params.device}/step${
+              href={`/start/${params.device}/step${
                 currentStep - 1
               }`}
               className="flex items-center justify-center gap-3 border border-[#1A1818] text-[#1A1818] px-2 lg:px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
@@ -308,7 +308,7 @@ const StepPage = ({
           {/* Next Button */}
           {!isLastStep ? (
             <Link
-              href={`/setupguide/${params.device}/step${
+              href={`/start/${params.device}/step${
                 currentStep + 1
               }`}
               className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-2 lg:px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
