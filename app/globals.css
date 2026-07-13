@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 /* :root {
 
@@ -45,10 +44,10 @@ body {
     @apply text-white px-6 sm:px-10 md:px-16 lg:px-20 rounded-[16px] font-medium text-base sm:text-xl lg:text-paragraph;
   }
   .btn-primary {
-    @apply btn py-4 sm:py-6 lg:py-8 text-lg sm:text-xl lg:text-2xl transition-colors bg-gradient-to-r from-[#E0462D] to-[#A73826];
+    @apply text-white px-6 sm:px-10 md:px-16 lg:px-20 rounded-[16px] font-medium text-base sm:text-xl lg:text-paragraph py-4 sm:py-6 lg:py-8 text-lg sm:text-xl lg:text-2xl transition-colors bg-gradient-to-r from-[#E0462D] to-[#A73826];
   }
   .btn-outline {
-    @apply btn box-border border-2 sm:border-[3px] md:border-4 lg:border-[5px] py-4 sm:py-6 lg:py-8 border-white flex items-center justify-center;
+    @apply text-white px-6 sm:px-10 md:px-16 lg:px-20 rounded-[16px] font-medium text-base sm:text-xl lg:text-paragraph box-border border-2 sm:border-[3px] md:border-4 lg:border-[5px] py-4 sm:py-6 lg:py-8 border-white flex items-center justify-center;
   }
   .container {
     @apply max-w-5xl mx-auto px-4;

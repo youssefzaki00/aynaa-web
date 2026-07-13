@@ -1,7 +1,6 @@
 import { Steps } from "./stepData";
 
-const windowsSteps: { gen1: Steps } = {
-  gen1: {
+const windowsSteps: Steps = {
     step1: [
       {
         type: "text",
@@ -114,7 +113,6 @@ const windowsSteps: { gen1: Steps } = {
         data: 1,
       },
     ],
-  },
 };
 
 export default windowsSteps;

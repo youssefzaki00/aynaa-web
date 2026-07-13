@@ -1,12 +1,12 @@
-import { genSetupGuideData } from "../../setupGuideData";
-import { deviceName } from "@/app/[gen]/genData";
+import { SetupGuideData } from "../../setupGuideData";
+import { deviceName } from "@/app/deviceTypes";
 import DeviceFeaturesCard from "./DeviceFeaturesCard";
 import DeviceHeroSection from "./DeviceHeroSection";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";
 
 interface DeviceDownloadPageProps {
   device: deviceName;
-  genGuide: genSetupGuideData;
+  setupGuide: SetupGuideData;
   deviceConfig: {
     icon: string;
     title: string;
@@ -19,10 +19,10 @@ interface DeviceDownloadPageProps {
 
 export default function DeviceDownloadPage({
   device,
-  genGuide,
+  setupGuide,
   deviceConfig,
 }: DeviceDownloadPageProps) {
-  const otherDevices = genGuide.devices.filter(
+  const otherDevices = setupGuide.devices.filter(
     (d) => !d.soon && deviceConfig.otherDevicesFilter(d.device)
   );
 

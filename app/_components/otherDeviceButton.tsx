@@ -3,7 +3,7 @@ import Image from "next/image";
 import { deviceParams } from "@/app/start/[device]/deviceData";
 const unifiedColor = 'from-red-500 to-red-600 shadow-red-400';
 
-export default function OtherDeviceButton({device,gen,soon}:deviceParams){
+export default function OtherDeviceButton({ device, soon }: deviceParams) {
     return(
     
         <Link

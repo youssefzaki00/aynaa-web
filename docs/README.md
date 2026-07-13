@@ -49,10 +49,9 @@ The project follows Next.js App Router structure:
 ainaa-web/
 ├── app/                    # Main application code
 │   ├── _components/        # Shared components
-│   ├── [gen]/              # Dynamic routes for generations
-│   │   └── setupguide/     # Setup guide pages
-│   │       └── [device]/   # Device-specific setup guides
-│   │           └── [step]/ # Step-by-step instructions
+│   ├── start/              # Device setup guide routes
+│   │   └── [device]/       # Device-specific setup guides
+│   │       └── [step]/     # Step-by-step instructions
 │   ├── setupvalues/        # Protection levels information
 │   ├── support/            # Customer support
 │   ├── privacy/            # Privacy policy

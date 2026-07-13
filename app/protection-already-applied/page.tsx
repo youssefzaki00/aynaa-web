@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Modal from "../_components/Modal";
-import { supportEmail } from "@/importantLinks";
 
 export default function ProtectionAlreadyApplied() {
   const [isOpen, setIsOpen] = useState(true);
@@ -21,18 +20,9 @@ export default function ProtectionAlreadyApplied() {
           </div>
           <p>
             هذا من أجل سد ثغرات الحماية، حتى لا يستطيع شاب فكها في لحظة ضعف! إن
-            كنت أباً أو شخصاً يحتاج تفعيلها من الراوتر، يمكنك التواصل معنا عبر
-            البريد الإلكتروني.
+            كنت أباً أو شخصاً يحتاج تفعيلها من الراوتر، يجب عليك الرجوع إلى
+            الشخص المسؤول عن الشبكة.
           </p>
-
-          <div className="flex justify-center w-full">
-            <a
-              href={`mailto:${supportEmail}`}
-              className="w-48 p-4 rounded-md text-white bg-red-700"
-            >
-              راسلنا
-            </a>
-          </div>
         </div>
       </Modal>
     </article>

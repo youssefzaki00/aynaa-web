@@ -1,19 +1,19 @@
-import { genSetupGuideData } from "../../setupGuideData";
+import { SetupGuideData } from "../../setupGuideData";
 import { deviceParams } from "../deviceData";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";
 import RouterContentSection from "./RouterContentSection";
 import RouterHeroSection from "./RouterHeroSection";
 
 interface RouterPageProps {
-  genGuide: genSetupGuideData;
+  setupGuide: SetupGuideData;
   device: deviceParams;
 }
 
 export default function RouterPage({
-  genGuide,
+  setupGuide,
   device,
 }: RouterPageProps) {
-  const otherDevices = genGuide.devices.filter(
+  const otherDevices = setupGuide.devices.filter(
     (d) =>
       !d.soon &&
       ["windows", "android"].includes(d.device) &&

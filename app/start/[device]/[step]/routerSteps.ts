@@ -1,8 +1,7 @@
-import { PrimaryDNS, SecondaryDNS, supportEmail } from "@/importantLinks";
+import { PrimaryDNS, SecondaryDNS } from "@/importantLinks";
 import { Steps } from "./stepData";
 
-const routerSteps: { gen1: Steps } = {
-	gen1: {
+const routerSteps: Steps = {
 		step1: [
 			{
 				type: "text",
@@ -52,14 +51,7 @@ const routerSteps: { gen1: Steps } = {
 			},
 			{
 				type: "text",
-				data: "إذا لم تتمكن من العثور عليها، راسلنا على البريد الإلكتروني للمساعدة.",
-			},
-			{
-				type: "link",
-				data: {
-					href: `mailto:${supportEmail}`,
-					text: `للتواصل عبر البريد: ${supportEmail}`,
-				},
+				data: "إذا لم تتمكن من العثور عليها، راجع دليل الراوتر أو ابحث عن إعدادات DNS داخل لوحة التحكم.",
 			},
 			{
 				type: "text",
@@ -77,7 +69,6 @@ const routerSteps: { gen1: Steps } = {
 				},
 			},
 		],
-	},
 };
 
 export default routerSteps;

@@ -9,7 +9,7 @@ import EnterYourNumber from "./EnterYourNumber";
 // Define a single color theme for all devices - changed to red
 const unifiedColor = "from-red-500 to-red-600 shadow-red-400";
 
-function DeviceCard({ device, gen, soon }: deviceParams) {
+function DeviceCard({ device, soon }: deviceParams) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 

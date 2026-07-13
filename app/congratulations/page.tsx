@@ -1,14 +1,11 @@
-import setupGuideData, {
-  genSetupGuideData,
-} from "@/app/start/setupGuideData";
+import setupGuideData, { SetupGuideData } from "@/app/start/setupGuideData";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";
-import { CircleCheckBig, MessageSquareText, Shield } from "lucide-react";
+import { CircleCheckBig, Shield } from "lucide-react";
 import Link from "next/link";
-import { supportEmail } from "@/importantLinks";
 
 export default function CongratulationsPage() {
-  const genGuide: genSetupGuideData = setupGuideData.gen1;
-  const otherDevices = genGuide.devices.filter(
+  const setupGuide: SetupGuideData = setupGuideData;
+  const otherDevices = setupGuide.devices.filter(
     (device) => !device.soon && ["windows", "android"].includes(device.device)
   );
 
@@ -159,28 +156,6 @@ export default function CongratulationsPage() {
               </div>
             </div>
           </div>
-
-          {/* Contact Support Section */}
-          <section
-            className="w-full rounded-lg border border-[#FB923C] p-8 lg:p-12 flex flex-col items-center gap-6 mt-8"
-            style={{
-              backgroundColor: "#FEE6E2",
-            }}
-          >
-            <h3 className="font-bold text-2xl md:text-3xl text-center text-[#1A1818] leading-[1.667]">
-              لا تزال تواجه مشكلة ؟
-            </h3>
-            <p className="font-normal text-lg md:text-xl text-center text-[#7A706F] leading-[1.563]">
-              فريقنا جاهز لمساعدتك على مدار الساعة
-            </p>
-            <a
-              href={`mailto:${supportEmail}`}
-              className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
-            >
-              <MessageSquareText size={24} />
-              <span>راسلنا على البريد</span>
-            </a>
-          </section>
         </div>
       </div>
       {/* Other Devices Section */}

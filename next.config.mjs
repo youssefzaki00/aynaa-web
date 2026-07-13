@@ -26,6 +26,11 @@ const nextConfig = {
 				permanent: true,
 			},
 			{
+				source: "/setupguide/gen1/:path*",
+				destination: "/setupguide/:path*",
+				permanent: true,
+			},
+			{
 				source: "/setupguide",
 				destination: "/start",
 				permanent: true,

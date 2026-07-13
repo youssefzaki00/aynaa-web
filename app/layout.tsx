@@ -148,7 +148,6 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className={elMessiri.className}>
       <body>
         <Header />
-        {/* <Warnning /> */}
         <main className="pt-10 min-h-[550px]">{children}</main>
         <Footer />
       </body>

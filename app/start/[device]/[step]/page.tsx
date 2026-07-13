@@ -1,9 +1,8 @@
-import { deviceName } from "@/app/[gen]/genData";
+import { deviceName } from "@/app/deviceTypes";
 import {
   ArrowLeft,
   ArrowRight,
   ChevronLeft,
-  MessageSquareText,
   ShieldCheck,
 } from "lucide-react";
 import Image from "next/image";
@@ -11,12 +10,13 @@ import Link from "next/link";
 import React from "react";
 import stepData, { Step, stepName } from "./stepData";
 
-const StepPage = ({
+const StepPage = async ({
   params,
 }: {
-  params: { step: stepName; device: deviceName };
+  params: Promise<{ step: stepName; device: deviceName }>;
 }) => {
-  const devSteps = (stepData.gen1 as any)?.[params.device];
+  const { step, device } = await params;
+  const devSteps = stepData[device];
 
   if (!devSteps) {
     return (
@@ -27,9 +27,9 @@ const StepPage = ({
   }
 
   const totalSteps = Object.keys(devSteps).length;
-  const currentStep = Number(params.step.replace("step", ""));
+  const currentStep = Number(step.replace("step", ""));
   const isLastStep = currentStep === totalSteps;
-  const substeps: Step[] = devSteps[params.step] || [];
+  const substeps: Step[] = devSteps?.[step] || [];
 
   // Get device name in Arabic
   const deviceNames: Record<string, string> = {
@@ -86,10 +86,10 @@ const StepPage = ({
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-4">
           <Link
-            href={`/start/${params.device}`}
+            href={`/start/${device}`}
             className="font-normal text-[22px] text-[#D43820] leading-[1.563] hover:opacity-80 transition-opacity"
           >
-            {deviceNames[params.device] || params.device}
+            {deviceNames[device] || device}
           </Link>
           <ChevronLeft size={24} className="text-black" strokeWidth={2} />
           <span className="font-normal text-[22px] text-[#7A706F] leading-[1.563]">
@@ -107,55 +107,6 @@ const StepPage = ({
           {processedSteps.map((item, idx) => {
             if (item.type === "text") {
               const textContent = item.data?.toString() || "";
-              const isStep3SupportCard =
-                currentStep === 3 &&
-                item.index === 3 &&
-                textContent.includes("راسلنا على البريد");
-
-              if (isStep3SupportCard) {
-                const nextLink = processedSteps[idx + 1];
-                return (
-                  <div
-                    key={idx}
-                    className="w-full rounded-lg border-2 flex flex-col gap-6 p-8"
-                    style={{
-                      backgroundColor: "#F8FAFC",
-                      borderColor: "#CBD5E1",
-                    }}
-                  >
-                    <div className="flex items-start gap-6">
-                      <div
-                        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: "#D43820" }}
-                      >
-                        <span className="font-normal text-[20px] text-white leading-[1em]">
-                          {item.index}
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-normal text-right text-[22px] text-[#1A1818] leading-[1.563]">
-                          {textContent}
-                        </p>
-                      </div>
-                    </div>
-
-                    {nextLink?.type === "link" && nextLink.linkData && (
-                      <div className="flex pr-[53px]">
-                        <Link
-                          href={nextLink.linkData.href}
-                          className="flex items-center justify-center gap-3 border border-[#E0462D] text-[#E0462D] px-6 py-5 rounded-[8px] font-bold text-[18px] hover:opacity-90 transition-opacity"
-                        >
-                          <MessageSquareText
-                            size={24}
-                            className="text-[#E0462D]"
-                          />
-                          <span>{nextLink.linkData.text}</span>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                );
-              }
 
               const isStep3DnsCard =
                 currentStep === 3 &&
@@ -273,7 +224,7 @@ const StepPage = ({
                 <div key={idx} className="w-full">
                   <Image
                     alt="screenshot"
-                    src={`/setupguide/gen1/${params.device}/${params.step}_${item.data}.png`}
+                    src={`/setupguide/${device}/${step}_${item.data}.png`}
                     width={1088}
                     height={459}
                     className="w-full h-auto rounded-lg object-cover"
@@ -281,7 +232,7 @@ const StepPage = ({
                 </div>
               );
             } else if (item.type === "link") {
-              // Skip link rendering - they're handled within cards (card 3 support button, card 4 learn more)
+              // Skip link rendering - handled within the DNS card (learn more)
               return null;
             }
             return null;
@@ -293,7 +244,7 @@ const StepPage = ({
           {/* Previous Button */}
           {currentStep > 1 ? (
             <Link
-              href={`/start/${params.device}/step${
+              href={`/start/${device}/step${
                 currentStep - 1
               }`}
               className="flex items-center justify-center gap-3 border border-[#1A1818] text-[#1A1818] px-2 lg:px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
@@ -308,7 +259,7 @@ const StepPage = ({
           {/* Next Button */}
           {!isLastStep ? (
             <Link
-              href={`/start/${params.device}/step${
+              href={`/start/${device}/step${
                 currentStep + 1
               }`}
               className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-2 lg:px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
@@ -334,8 +285,8 @@ const StepPage = ({
 export default StepPage;
 
 export function generateStaticParams() {
-  return Object.keys(stepData.gen1).flatMap((device) => {
-    const steps = Object.keys(stepData.gen1[device as deviceName] || {});
+  return Object.keys(stepData).flatMap((device) => {
+    const steps = Object.keys(stepData[device as deviceName] || {});
 
     if (steps.length < 15) {
       for (let i = steps.length + 1; i <= 15; i++) {

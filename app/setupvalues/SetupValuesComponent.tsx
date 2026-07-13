@@ -4,7 +4,7 @@ import { ArrowLeft, Check, Shield } from "lucide-react";
 import LinkButton from "../_components/LinkButton";
 
 const SetupValuesComponent = () => {
-  const protection = setupValuesData.gen1.protection;
+  const protection = setupValuesData.protection;
 
   return (
     <div className="flex flex-col items-center gap-10 bg-white px-4 py-20">

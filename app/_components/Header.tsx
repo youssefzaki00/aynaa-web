@@ -10,7 +10,6 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
-  // Navigation links
   const navLinks = [
     {
       label: "الحماية",
@@ -42,7 +41,7 @@ function Header() {
                 href ? (
                   <Link
                     key={index}
-                    href={href || "#"}
+                    href={href}
                     className="before:bottom-[-8px] before:left-0 before:absolute relative before:bg-[#da442c] hover:drop-shadow-lg before:w-0 hover:before:w-full before:h-0.5 font-semibold text-black hover:text-[#da442c] text-lg active:scale-95 transition-all before:transition-all duration-300 before:duration-300 cursor-pointer"
                   >
                     {label}
@@ -50,12 +49,10 @@ function Header() {
                 ) : (
                   <li
                     key={index}
-                    className="before:bottom-[-8px] before:left-0 before:absolute relative before:bg-[#da442c] hover:drop-shadow-lg before:w-0 hover:before:w-full before:h-0.5 font-semibold text-black hover:text-[#da442c] text-lg active:scale-95 transition-all before:transition-all duration-300 before:duration-300 cursor-pointer"
+                    className="before:bottom-[-8px] before:left-0 before:absolute relative before:bg-[#da442c] hover:drop-shadow-lg before:w-0 hover:before:w-full before:h-0.5 font-semibold text-black hover:text-[#da442c] text-lg active:scale-95 transition-all before:transition-all duration-300 before:duration-300 cursor-pointer list-none"
                     onClick={(e) => {
-                      if (clickHandler) {
-                        e.preventDefault();
-                        clickHandler();
-                      }
+                      e.preventDefault();
+                      clickHandler?.();
                     }}
                   >
                     {label}
@@ -88,21 +85,20 @@ function Header() {
               href ? (
                 <Link
                   key={index}
-                  href={href || "#"}
+                  href={href}
                   className="before:bottom-[-8px] before:left-0 before:absolute relative before:bg-[#da442c] hover:drop-shadow-lg before:w-0 hover:before:w-full before:h-0.5 font-semibold text-black hover:text-[#da442c] text-lg active:scale-95 transition-all before:transition-all duration-300 before:duration-300 cursor-pointer"
+                  onClick={() => setMenuOpen(false)}
                 >
                   {label}
                 </Link>
               ) : (
                 <li
                   key={index}
-                  className="before:bottom-0 before:left-0 before:absolute relative before:bg-[#da442c] hover:drop-shadow-lg before:w-0 hover:before:w-full before:h-0.5 font-semibold text-black hover:text-[#da442c] text-lg active:scale-95 transition-all before:transition-all duration-300 before:duration-300 cursor-pointer"
+                  className="before:bottom-0 before:left-0 before:absolute relative before:bg-[#da442c] hover:drop-shadow-lg before:w-0 hover:before:w-full before:h-0.5 font-semibold text-black hover:text-[#da442c] text-lg active:scale-95 transition-all before:transition-all duration-300 before:duration-300 cursor-pointer list-none"
                   onClick={(e) => {
-                    if (clickHandler) {
-                      e.preventDefault();
-                      setMenuOpen(false);
-                      clickHandler();
-                    }
+                    e.preventDefault();
+                    setMenuOpen(false);
+                    clickHandler?.();
                   }}
                 >
                   {label}
@@ -113,14 +109,11 @@ function Header() {
         </nav>
       </header>
 
-      {/* Support Us Modal */}
-      <div className="top-0 left-0 z-50 flex justify-center items-center bg-black/50">
-        <SupportUs
-          close={true}
-          isOpen={isSupportOpen}
-          onClose={() => setIsSupportOpen(false)}
-        />
-      </div>
+      <SupportUs
+        close={true}
+        isOpen={isSupportOpen}
+        onClose={() => setIsSupportOpen(false)}
+      />
     </>
   );
 }

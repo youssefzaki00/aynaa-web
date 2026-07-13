@@ -1,5 +1,5 @@
 import { downloadAndroid, downloadWindows } from "@/importantLinks";
-import { deviceName } from "@/app/[gen]/genData";
+import { deviceName } from "@/app/deviceTypes";
 
 export interface DeviceConfig {
   icon: string;

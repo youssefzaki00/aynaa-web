@@ -2,9 +2,8 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import SupportUs from "./SupportUs";
-import Explanation from "./Explanation";
 import { FaLinkedin, FaSquareWhatsapp } from "react-icons/fa6";
+import SupportUs from "./SupportUs";
 
 const FooterLinkList = ({
   title,
@@ -38,7 +37,6 @@ const FooterLinkList = ({
 const Footer = () => {
   const router = useRouter();
   const [isSupportOpen, setIsSupportOpen] = useState(false);
-  const [isOpenExplanation, setIsOpenExplanation] = useState(false);
 
   const FOOTER_CONTENT = {
     logo: {
@@ -113,20 +111,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="top-0 left-0 z-50 flex justify-center items-center bg-black/50">
-        <SupportUs
-          close={true}
-          isOpen={isSupportOpen}
-          onClose={() => setIsSupportOpen(false)}
-        />
-      </div>
-
-      <div className="top-0 left-0 z-50 flex justify-center items-center bg-black/50">
-        <Explanation
-          isOpen={isOpenExplanation}
-          onClose={() => setIsOpenExplanation(false)}
-        />
-      </div>
+      <SupportUs
+        close={true}
+        isOpen={isSupportOpen}
+        onClose={() => setIsSupportOpen(false)}
+      />
     </footer>
   );
 };

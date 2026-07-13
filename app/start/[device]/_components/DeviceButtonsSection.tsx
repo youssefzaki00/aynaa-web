@@ -1,6 +1,5 @@
-import { Download, MessageSquareText } from "lucide-react";
+import { Download } from "lucide-react";
 import Link from "next/link";
-import { supportEmail } from "@/importantLinks";
 
 interface DeviceButtonsSectionProps {
   downloadLink: string;
@@ -17,24 +16,6 @@ export default function DeviceButtonsSection({
       >
         <span>تحميل التطبيق</span>
         <Download size={24} className="text-white" strokeWidth={2} />
-      </Link>
-
-      <Link
-        href={`mailto:${supportEmail}`}
-        className="flex items-center justify-center gap-3 border rounded-lg px-6 py-5 bg-white hover:opacity-90 transition-opacity"
-        style={{
-          borderColor: "#D43820",
-          borderWidth: "1px",
-        }}
-      >
-        <span className="font-bold text-lg text-[#E0462D] leading-[1.563]">
-          تواصل معنا
-        </span>
-        <MessageSquareText
-          size={24}
-          className="text-[#D43820]"
-          strokeWidth={2}
-        />
       </Link>
     </div>
   );

@@ -1,8 +1,7 @@
 import { Steps } from "./stepData";
 
-const androidSteps: { gen1: Steps } = {
-  gen1: {
-    step1: [
+const androidSteps: Steps = {
+  step1: [
       {
         type: "text",
         data: "قم بتنزيل تطبيق الأندرويد من متجر Google Play.",
@@ -32,7 +31,6 @@ const androidSteps: { gen1: Steps } = {
         data: 'تأكد من تفعيل خيار "بدء التشغيل التلقائي" في إعدادات التطبيق.',
       },
     ],
-  },
 };
 
 export default androidSteps;
