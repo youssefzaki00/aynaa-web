@@ -60,13 +60,14 @@ export default function SupportUs({ isOpen, onClose, close }: SupportUsProps) {
 						className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full hover:bg-[#F8FAFC] transition-colors"
 					>
 						<div className="flex items-center gap-3">
-							<Image
-								src="/support_us/instapay-icon.png"
-								alt=""
-								width={40}
-								height={40}
-								className="shrink-0 object-contain"
-							/>
+							<div className="relative shrink-0 w-10 h-10">
+								<Image
+									src="/support_us/instapay-icon.png"
+									alt=""
+									fill
+									className="object-contain object-center"
+								/>
+							</div>
 							<span className="font-medium text-[#1A1818]">
 								ادفع عبر InstaPay
 							</span>
@@ -80,13 +81,14 @@ export default function SupportUs({ isOpen, onClose, close }: SupportUsProps) {
 						className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full hover:bg-[#F8FAFC] transition-colors"
 					>
 						<div className="flex items-center gap-3">
-							<Image
-								src="/support_us/instapay-icon.png"
-								alt=""
-								width={40}
-								height={40}
-								className="shrink-0 object-contain"
-							/>
+							<div className="relative shrink-0 w-10 h-10">
+								<Image
+									src="/support_us/instapay-icon.png"
+									alt=""
+									fill
+									className="object-contain object-center"
+								/>
+							</div>
 							<span className="font-medium text-[#1A1818]">
 								ادفع عبر InstaPay
 							</span>
@@ -97,13 +99,15 @@ export default function SupportUs({ isOpen, onClose, close }: SupportUsProps) {
 
 				<div className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full">
 					<div className="flex items-center gap-3 min-w-0">
-						<Image
-							src="/support_us/vodafone-icon.svg"
-							alt=""
-							width={40}
-							height={40}
-							className="shrink-0 object-contain"
-						/>
+						<div className="flex shrink-0 justify-center items-center w-10 h-10">
+							<Image
+								src="/support_us/vodafone-icon.svg"
+								alt=""
+								width={40}
+								height={40}
+								className="object-contain"
+							/>
+						</div>
 						<div className="flex flex-col gap-0.5 min-w-0">
 							<span className="font-semibold text-[#1A1818]">فودافون كاش</span>
 							<span className="text-[#64748B] text-sm truncate">
