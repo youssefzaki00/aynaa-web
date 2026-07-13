@@ -5,7 +5,6 @@ import {
   ChevronLeft,
   ShieldCheck,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import stepData, { Step, stepName } from "./stepData";
@@ -222,12 +221,13 @@ const StepPage = async ({
             } else if (item.type === "screenshot") {
               return (
                 <div key={idx} className="w-full">
-                  <Image
-                    alt="screenshot"
-                    src={`/setupguide/${device}/${step}_${item.data}.png`}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    alt=""
+                    src={`/guide-screenshots/${device}/${step}_${item.data}.png`}
                     width={1088}
                     height={459}
-                    className="w-full h-auto rounded-lg object-cover"
+                    className="w-full h-auto rounded-lg border border-[#E2E8F0]"
                   />
                 </div>
               );
