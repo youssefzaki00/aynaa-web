@@ -1,6 +1,8 @@
 import setupGuideData from "../setupGuideData";
 import { deviceName, genParam } from "@/app/[gen]/genData";
 
+export const ACTIVE_GEN = "gen1" as const;
+
 export type deviceParam = { device: deviceName };
 
 const deviceData: { gen1: any; gen2: any } = {

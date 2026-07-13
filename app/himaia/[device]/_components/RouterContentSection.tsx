@@ -2,7 +2,6 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 interface RouterContentSectionProps {
-  gen: string;
   embeddedVideo?: {
     src: string;
     title: string;
@@ -10,7 +9,6 @@ interface RouterContentSectionProps {
 }
 
 export default function RouterContentSection({
-  gen,
   embeddedVideo,
 }: RouterContentSectionProps) {
   return (
@@ -48,7 +46,7 @@ export default function RouterContentSection({
 
             {/* Button below video */}
             <Link
-              href={`/${gen}/setupguide/router/step1`}
+              href="/setupguide/router/step1"
               className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
             >
               <span>خطوات تفعيل الحمايه</span>

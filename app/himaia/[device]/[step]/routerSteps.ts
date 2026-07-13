@@ -1,14 +1,8 @@
-import {
-	PrimaryHigh,
-	PrimaryLow,
-	SecondaryHigh,
-	SecondaryLow,
-} from "@/importantLinks";
+import { PrimaryDNS, SecondaryDNS, supportEmail } from "@/importantLinks";
 import { Steps } from "./stepData";
 
 const routerSteps: { gen1: Steps } = {
 	gen1: {
-		// الخطوة 1: الدخول لصفحة الراوتر
 		step1: [
 			{
 				type: "text",
@@ -20,7 +14,6 @@ const routerSteps: { gen1: Steps } = {
 			},
 		],
 
-		// الخطوة 2: تسجيل الدخول لصفحة الراوتر
 		step2: [
 			{
 				type: "text",
@@ -48,7 +41,6 @@ const routerSteps: { gen1: Steps } = {
 			},
 		],
 
-		// الخطوة 3: إعدادات الراوتر وتفعيل الحماية (DNS)
 		step3: [
 			{
 				type: "text",
@@ -60,32 +52,28 @@ const routerSteps: { gen1: Steps } = {
 			},
 			{
 				type: "text",
-				data: " إذا لم تتمكن من العثور عليها، تواصل مع الدعم.",
+				data: "إذا لم تتمكن من العثور عليها، راسلنا على البريد الإلكتروني للمساعدة.",
 			},
 			{
 				type: "link",
 				data: {
-					href: "https://m.me/ainaa.mafazaa",
-					text: "للتواصل عبر ماسنجر 📩",
+					href: `mailto:${supportEmail}`,
+					text: `للتواصل عبر البريد: ${supportEmail}`,
 				},
 			},
 			{
 				type: "text",
-				data: " (اختر مستوى الحماية المناسب لك):",
+				data: "أدخل عناوين DNS التالية (CleanBrowsing):",
 			},
 			{
 				type: "text",
-				data: `✅ (حماية منخفضة):\n - (Primary DNS): ${PrimaryLow}\n - (Secondary DNS): ${SecondaryLow}`,
-			},
-			{
-				type: "text",
-				data: `✅ (حماية عالية):\n - (Primary DNS):  ${PrimaryHigh}\n - (Secondary DNS):  ${SecondaryHigh}`,
+				data: `✅ الحماية:\n - (Primary DNS): ${PrimaryDNS}\n - (Secondary DNS): ${SecondaryDNS}`,
 			},
 			{
 				type: "link",
 				data: {
 					href: "/setupvalues",
-					text: "لمعرفة المزيد عن أنواع الحماية ➡️",
+					text: "لمعرفة المزيد عن الحماية ➡️",
 				},
 			},
 		],

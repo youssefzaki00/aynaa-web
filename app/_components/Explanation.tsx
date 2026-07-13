@@ -27,7 +27,7 @@ export default function Explanation({ isOpen, onClose }: ExplanationProps) {
 
 				<div className="flex justify-around w-full items-center gap-4 ">
 					<Link
-						href="/gen1/setupguide"
+						href="/setupguide"
 						className="w-40 p-4 rounded-md text-white bg-red-700 text-center"
 						onClick={onClose}
 					>

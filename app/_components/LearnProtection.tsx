@@ -5,7 +5,7 @@ const LearnProtection = () => {
   return (
     <Button
       link={`/setupvalues`}
-      content="اضغط هنا لمعرفة المزيد عن مستويات الحماية المتاحة"
+      content="اضغط هنا لمعرفة المزيد عن الحماية المتاحة"
     />
   );
 };

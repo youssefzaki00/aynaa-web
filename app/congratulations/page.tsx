@@ -1,9 +1,10 @@
 import setupGuideData, {
   genSetupGuideData,
-} from "@/app/[gen]/setupguide/setupGuideData";
+} from "@/app/setupguide/setupGuideData";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";
 import { CircleCheckBig, MessageSquareText, Shield } from "lucide-react";
 import Link from "next/link";
+import { supportEmail } from "@/importantLinks";
 
 export default function CongratulationsPage() {
   const genGuide: genSetupGuideData = setupGuideData.gen1;
@@ -172,13 +173,13 @@ export default function CongratulationsPage() {
             <p className="font-normal text-lg md:text-xl text-center text-[#7A706F] leading-[1.563]">
               فريقنا جاهز لمساعدتك على مدار الساعة
             </p>
-            <Link
-              href="/support"
+            <a
+              href={`mailto:${supportEmail}`}
               className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
             >
               <MessageSquareText size={24} />
-              <span>تواصل مع خدمة العملاء</span>
-            </Link>
+              <span>راسلنا على البريد</span>
+            </a>
           </section>
         </div>
       </div>

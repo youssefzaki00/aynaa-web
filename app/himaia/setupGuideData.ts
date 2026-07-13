@@ -1,4 +1,4 @@
-import { genData, genProps } from "../genData";
+import { genData, genProps } from "@/app/[gen]/genData";
 import { deviceParams } from "./[device]/deviceData";
 
 const setupGuideData: { gen1: genSetupGuideData; gen2: genSetupGuideData } = {

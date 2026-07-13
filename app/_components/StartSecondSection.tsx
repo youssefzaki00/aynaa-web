@@ -1,8 +1,6 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import EnterYourNumber from "./EnterYourNumber";
@@ -22,7 +20,7 @@ const deviceCards: DeviceCardData[] = [
     description:
       "فعِّل الحماية على موبايلك. التطبيق يمنع المواقع الإباحية والضارة وبيشتغل في الخلفية بدون ما يبطئ الجهاز أو يستهلك البطارية.",
     iconPath: "/devices/android.svg",
-    link: "/gen1/setupguide/android",
+    link: "/setupguide/android",
   },
   {
     device: "router",
@@ -30,7 +28,7 @@ const deviceCards: DeviceCardData[] = [
     description:
       "سيطر على شبكة البيت من المصدر. بمجرد تفعيل الحماية على الراوتر، أي جهاز متصل بالواي فاي  موبايل أو كمبيوتر بيكون محمي تلقائيًا",
     iconPath: "/devices/router.svg",
-    link: "/gen1/setupguide/router",
+    link: "/setupguide/router",
   },
   {
     device: "windows",
@@ -38,7 +36,7 @@ const deviceCards: DeviceCardData[] = [
     description:
       "خليك مطمّن على كمبيوترك. النظام يمنع المواقع الإباحية والبرمجيات الضارة في المتصفحات كلها، ويشتغل بهدوء في الخلفية بدون ما يعيق شغلك أو تصفّحك.",
     iconPath: "/devices/windows.svg",
-    link: "/gen1/setupguide/windows",
+    link: "/setupguide/windows",
   },
 ];
 
@@ -130,15 +128,6 @@ export default function StartSecondSection() {
           </div>
         </div>
       </div>
-
-      {/* Support Floating Button */}
-      <Link
-        href="/support"
-        className="fixed bottom-8 left-8 z-50 flex items-center justify-center rounded-full transition-all hover:scale-110 shadow-lg start-support-button"
-        aria-label="خدمة العملاء"
-      >
-        <MessageCircle size={32} className="text-white" />
-      </Link>
 
       {/* Router Modal */}
       {isRouterModalOpen && (

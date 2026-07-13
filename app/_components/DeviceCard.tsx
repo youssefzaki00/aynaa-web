@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { deviceParams } from "../[gen]/setupguide/[device]/deviceData";
+import { deviceParams } from "@/app/setupguide/[device]/deviceData";
 import EnterYourNumber from "./EnterYourNumber";
 
 // Define a single color theme for all devices - changed to red
@@ -33,7 +33,7 @@ function DeviceCard({ device, gen, soon }: deviceParams) {
           if (soon) {
             router.push("/commingSoon");
           } else {
-            router.push(`/${gen}/setupguide/${device}`);
+            router.push(`/setupguide/${device}`);
           }
         }}
         className={`relative group p-4 sm:p-5 md:p-6 lg:px-10 duration-300 transform border border-gray-300 text-gray-900 shadow-lg rounded-[20px] sm:rounded-[25px] md:rounded-[30px] w-[220px] sm:w-[250px] md:w-[289px] h-[220px] sm:h-[250px] md:h-[289px] flex flex-col gap-3 sm:gap-4 md:gap-5 justify-center items-center transition-all

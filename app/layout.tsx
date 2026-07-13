@@ -125,7 +125,7 @@ export const metadata: Metadata = {
     title: "عَيْنًا سَلْسَبِيلًا - حماية إسلامية متكاملة",
     description:
       "حماية متقدمة لحجب المواقع الإباحية والتيك توك والأغاني والأفلام، وتأمين الإنترنت للأطفال والعائلات.",
-    url: "https://ainaa.mafazaa.com",
+    url: "https://aynaa.org",
     siteName: "عينًا سلسبيلًا",
     locale: "ar_EG",
     type: "website",

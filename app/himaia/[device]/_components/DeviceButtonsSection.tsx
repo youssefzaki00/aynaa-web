@@ -1,5 +1,6 @@
 import { Download, MessageSquareText } from "lucide-react";
 import Link from "next/link";
+import { supportEmail } from "@/importantLinks";
 
 interface DeviceButtonsSectionProps {
   downloadLink: string;
@@ -10,7 +11,6 @@ export default function DeviceButtonsSection({
 }: DeviceButtonsSectionProps) {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-      {/* Download App Button */}
       <Link
         href={downloadLink}
         className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-6 py-5 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity"
@@ -19,9 +19,8 @@ export default function DeviceButtonsSection({
         <Download size={24} className="text-white" strokeWidth={2} />
       </Link>
 
-      {/* Customer Service Button */}
       <Link
-        href="/support"
+        href={`mailto:${supportEmail}`}
         className="flex items-center justify-center gap-3 border rounded-lg px-6 py-5 bg-white hover:opacity-90 transition-opacity"
         style={{
           borderColor: "#D43820",
@@ -29,7 +28,7 @@ export default function DeviceButtonsSection({
         }}
       >
         <span className="font-bold text-lg text-[#E0462D] leading-[1.563]">
-          خدمة العملاء
+          تواصل معنا
         </span>
         <MessageSquareText
           size={24}

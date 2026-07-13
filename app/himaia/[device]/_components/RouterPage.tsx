@@ -5,13 +5,11 @@ import RouterContentSection from "./RouterContentSection";
 import RouterHeroSection from "./RouterHeroSection";
 
 interface RouterPageProps {
-  gen: string;
   genGuide: genSetupGuideData;
   device: deviceParams;
 }
 
 export default function RouterPage({
-  gen,
   genGuide,
   device,
 }: RouterPageProps) {
@@ -25,11 +23,10 @@ export default function RouterPage({
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <RouterHeroSection gen={gen} />
+      <RouterHeroSection />
 
       {/* Main Content Section */}
       <RouterContentSection
-        gen={gen}
         embeddedVideo={device.embeddedVideo}
       />
 

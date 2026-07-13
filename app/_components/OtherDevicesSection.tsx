@@ -1,4 +1,4 @@
-import { deviceParams } from "@/app/[gen]/setupguide/[device]/deviceData";
+import { deviceParams } from "@/app/setupguide/[device]/deviceData";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -63,7 +63,7 @@ export default function OtherDevicesSection({
             {devices.map((device) => (
               <Link
                 key={device.device}
-                href={`/${device.gen}/setupguide/${device.device}`}
+                href={`/setupguide/${device.device}`}
                 className="flex-1 flex flex-col items-center gap-6 p-6 bg-white rounded-xl max-w-[404px] mx-auto hover:shadow-lg transition-shadow"
               >
                 {/* Icon */}

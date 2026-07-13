@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Modal from "../_components/Modal";
-import Link from "next/link";
+import { supportEmail } from "@/importantLinks";
 
 export default function ProtectionAlreadyApplied() {
   const [isOpen, setIsOpen] = useState(true);
@@ -20,26 +20,18 @@ export default function ProtectionAlreadyApplied() {
             </p>
           </div>
           <p>
-            هذا من أجل سد ثغرات الحماية، حتى لا يستطيع شاب فكها في لحظة ضعف!إن
-            كنت أبا أو شخص يحتاج تفعيلها من الراوتر، يمكنك التواصل مع خدمة
-            العملاء
+            هذا من أجل سد ثغرات الحماية، حتى لا يستطيع شاب فكها في لحظة ضعف! إن
+            كنت أباً أو شخصاً يحتاج تفعيلها من الراوتر، يمكنك التواصل معنا عبر
+            البريد الإلكتروني.
           </p>
 
-          <div className="flex justify-around w-full items-center gap-4 ">
-            <Link
-              href="/support"
-              className="w-40 p-4 rounded-md text-white bg-red-700 "
+          <div className="flex justify-center w-full">
+            <a
+              href={`mailto:${supportEmail}`}
+              className="w-48 p-4 rounded-md text-white bg-red-700"
             >
-              خدمة العملاء
-            </Link>
-
-            {/* // Todo: Need to add a link for "مقالات تهمك" */}
-            <Link
-              href="/blogs"
-              className="w-40 p-4 rounded-lg  border-4 border-black "
-            >
-              مقالات تهمك
-            </Link>
+              راسلنا
+            </a>
           </div>
         </div>
       </Modal>

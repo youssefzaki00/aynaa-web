@@ -28,7 +28,7 @@ export default function HeroSection() {
           </div>
 
           <LinkButton
-            link="/gen1/setupguide"
+            link="/setupguide"
             className="w-fit"
             content={
               <>

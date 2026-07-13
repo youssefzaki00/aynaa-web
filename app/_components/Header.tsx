@@ -4,30 +4,24 @@ import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import headerLogo from "../../public/header-logo.svg";
-import Explanation from "./Explanation";
 import SupportUs from "./SupportUs";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isOpenExplanation, setIsOpenExplanation] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
 
   // Navigation links
   const navLinks = [
     {
-      label: "المدونة",
-      clickHandler: () => setIsOpenExplanation(true),
-    },
-    {
-      label: "مستويات الحماية",
-      href: "/setupvalues",
+      label: "الحماية",
+      href: "/setupguide",
     },
     {
       label: "ادعمنا",
-      // href: "https://mafazaa.com/support_us",
       clickHandler: () => setIsSupportOpen(true),
     },
-    { label: "خدمة العملاء", href: "/support" },
+    { label: "سياسة الخصوصية", href: "/privacy" },
+    { label: "الشروط والأحكام", href: "/terms" },
   ];
 
   return (
@@ -118,14 +112,6 @@ function Header() {
           </ul>
         </nav>
       </header>
-
-      {/* Explanation Modal */}
-      <div className="top-0 left-0 z-50 flex justify-center items-center bg-black/50">
-        <Explanation
-          isOpen={isOpenExplanation}
-          onClose={() => setIsOpenExplanation(false)}
-        />
-      </div>
 
       {/* Support Us Modal */}
       <div className="top-0 left-0 z-50 flex justify-center items-center bg-black/50">

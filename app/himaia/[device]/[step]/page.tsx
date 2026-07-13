@@ -1,5 +1,4 @@
 import { deviceName } from "@/app/[gen]/genData";
-import { genName } from "@/app/appTypes";
 import {
   ArrowLeft,
   ArrowRight,
@@ -15,7 +14,7 @@ import stepData, { Step, stepName } from "./stepData";
 const StepPage = ({
   params,
 }: {
-  params: { step: stepName; gen: genName; device: deviceName };
+  params: { step: stepName; device: deviceName };
 }) => {
   const devSteps = (stepData.gen1 as any)?.[params.device];
 
@@ -87,7 +86,7 @@ const StepPage = ({
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-4">
           <Link
-            href={`/${params.gen}/setupguide/${params.device}`}
+            href={`/setupguide/${params.device}`}
             className="font-normal text-[22px] text-[#D43820] leading-[1.563] hover:opacity-80 transition-opacity"
           >
             {deviceNames[params.device] || params.device}
@@ -108,170 +107,12 @@ const StepPage = ({
           {processedSteps.map((item, idx) => {
             if (item.type === "text") {
               const textContent = item.data?.toString() || "";
-              const isStep3Card3 =
+              const isStep3SupportCard =
                 currentStep === 3 &&
                 item.index === 3 &&
-                textContent.includes("إذا لم تتمكن من العثور عليها");
-              const isStep3Card4 =
-                currentStep === 3 &&
-                item.index === 4 &&
-                textContent.includes("اختر مستوى الحماية");
-              const isStep3LowProtection =
-                currentStep === 3 &&
-                item.index === 5 &&
-                textContent.includes("حماية منخفضة");
-              const isStep3HighProtection =
-                currentStep === 3 &&
-                item.index === 6 &&
-                textContent.includes("حماية عالية");
+                textContent.includes("راسلنا على البريد");
 
-              // Skip low/high protection cards - they're rendered inside card 4
-              if (isStep3LowProtection || isStep3HighProtection) {
-                return null;
-              }
-
-              // Card 4: Protection Levels Selection
-              if (isStep3Card4) {
-                const lowProtectionStep = processedSteps.find(
-                  (s) => s.index === 5 && s.type === "text"
-                );
-                const highProtectionStep = processedSteps.find(
-                  (s) => s.index === 6 && s.type === "text"
-                );
-                const learnMoreLink = processedSteps.find(
-                  (s) =>
-                    s.type === "link" && s.linkData?.href === "/setupvalues"
-                );
-
-                return (
-                  <div
-                    key={idx}
-                    className="w-full rounded-lg border-2 flex flex-col gap-6 p-8"
-                    style={{
-                      backgroundColor: "#F8FAFC",
-                      borderColor: "#CBD5E1",
-                    }}
-                  >
-                    {/* Card Header with Number */}
-                    <div className="flex items-start gap-6">
-                      <div
-                        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: "#D43820" }}
-                      >
-                        <span className="font-normal text-[20px] text-white leading-[1em]">
-                          {item.index}
-                        </span>
-                      </div>
-                      <h3 className="font-normal text-right text-[22px] text-[#0F172A] leading-[1.563] flex-1">
-                        {textContent}
-                      </h3>
-                    </div>
-
-                    {/* Protection Level Cards */}
-                    <div className="flex flex-col gap-6">
-                      {/* Low Protection Card */}
-                      {lowProtectionStep && (
-                        <div
-                          className="w-full rounded-lg border-2 p-6 flex flex-col gap-2"
-                          style={{
-                            backgroundColor: "#F0FDF4",
-                            borderColor: "#16A34A",
-                          }}
-                        >
-                          <div className="flex flex-col gap-2">
-                            <p className="font-normal text-right text-[22px] text-[#1A1818] leading-[1.563]">
-                              {lowProtectionStep.data
-                                ?.toString()
-                                .replace("- ", "")
-                                .split("\n")
-                                .map((line: string, i: number) => (
-                                  <React.Fragment key={i}>
-                                    {line}
-                                    {i <
-                                      lowProtectionStep.data
-                                        .toString()
-                                        .split("\n").length -
-                                        1 && <br />}
-                                  </React.Fragment>
-                                ))}
-                            </p>
-                          </div>
-                          <div className="flex items-center  gap-3 mt-2">
-                            <ShieldCheck
-                              size={24}
-                              className="text-[#D43820] flex-shrink-0"
-                            />
-                            <p className="font-bold text-[18px] text-[#D43820] leading-[1.563] text-right">
-                              يحظر مواقع الويب الرئيسية الصريحة مع الحفاظ على
-                              إمكانية الوصول إلى المحتوى العادي
-                            </p>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* High Protection Card */}
-                      {highProtectionStep && (
-                        <div
-                          className="w-full rounded-lg border-2 p-6 flex flex-col gap-2"
-                          style={{
-                            backgroundColor: "#F0FDF4",
-                            borderColor: "#16A34A",
-                          }}
-                        >
-                          <div className="flex flex-col gap-2">
-                            <p className="font-normal text-right text-[22px] text-[#1A1818] leading-[1.563]">
-                              {highProtectionStep.data
-                                ?.toString()
-                                .replace("- ", "")
-                                .split("\n")
-                                .map((line: string, i: number) => (
-                                  <React.Fragment key={i}>
-                                    {line}
-                                    {i <
-                                      highProtectionStep.data
-                                        .toString()
-                                        .split("\n").length -
-                                        1 && <br />}
-                                  </React.Fragment>
-                                ))}
-                            </p>
-                          </div>
-                          <div className="flex items-center  gap-3 mt-2">
-                            <ShieldCheck
-                              size={24}
-                              className="text-[#D43820] flex-shrink-0"
-                            />
-                            <p className="font-bold text-[18px] text-[#D43820] leading-[1.563] text-right">
-                              تحجب لك فقط الأساسيات التي قد تُزعجك أو تُعدّ غير
-                              مناسبة، مع إبقاء معظم المحتوى متاحاً لتصفحٍ أكثر
-                              حرية
-                            </p>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Learn More Link */}
-                      {learnMoreLink?.linkData && (
-                        <Link
-                          href={learnMoreLink.linkData.href}
-                          className="flex items-center  gap-3 text-[#E0462D] font-bold text-[18px] py-5 hover:opacity-90 transition-opacity"
-                        >
-                          <ShieldCheck
-                            size={24}
-                            className="text-[#E0462D] flex-shrink-0"
-                          />
-                          <span className="underline">
-                            {learnMoreLink.linkData.text.replace(" ➡️", "")}
-                          </span>
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                );
-              }
-
-              // Card 3: Support Button Card
-              if (isStep3Card3) {
+              if (isStep3SupportCard) {
                 const nextLink = processedSteps[idx + 1];
                 return (
                   <div
@@ -282,7 +123,6 @@ const StepPage = ({
                       borderColor: "#CBD5E1",
                     }}
                   >
-                    {/* Card Content with Number */}
                     <div className="flex items-start gap-6">
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
@@ -299,21 +139,97 @@ const StepPage = ({
                       </div>
                     </div>
 
-                    {/* Support Button */}
                     {nextLink?.type === "link" && nextLink.linkData && (
-                      <div className="flex  pr-[53px]">
+                      <div className="flex pr-[53px]">
                         <Link
                           href={nextLink.linkData.href}
-                          target="_blank"
                           className="flex items-center justify-center gap-3 border border-[#E0462D] text-[#E0462D] px-6 py-5 rounded-[8px] font-bold text-[18px] hover:opacity-90 transition-opacity"
                         >
                           <MessageSquareText
                             size={24}
                             className="text-[#E0462D]"
                           />
-                          <span>تواصل مع خدمة العملاء</span>
+                          <span>{nextLink.linkData.text}</span>
                         </Link>
                       </div>
+                    )}
+                  </div>
+                );
+              }
+
+              const isStep3DnsCard =
+                currentStep === 3 &&
+                textContent.includes("Primary DNS");
+
+              if (isStep3DnsCard) {
+                const learnMoreLink = processedSteps.find(
+                  (s) =>
+                    s.type === "link" && s.linkData?.href === "/setupvalues"
+                );
+
+                return (
+                  <div
+                    key={idx}
+                    className="w-full rounded-lg border-2 flex flex-col gap-6 p-8"
+                    style={{
+                      backgroundColor: "#F8FAFC",
+                      borderColor: "#CBD5E1",
+                    }}
+                  >
+                    <div className="flex items-start gap-6">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{ backgroundColor: "#D43820" }}
+                      >
+                        <span className="font-normal text-[20px] text-white leading-[1em]">
+                          {item.index}
+                        </span>
+                      </div>
+                      <div
+                        className="w-full rounded-lg border-2 p-6 flex flex-col gap-2"
+                        style={{
+                          backgroundColor: "#F0FDF4",
+                          borderColor: "#16A34A",
+                        }}
+                      >
+                        <p className="font-normal text-right text-[22px] text-[#1A1818] leading-[1.563]">
+                          {textContent
+                            .split("\n")
+                            .map((line: string, i: number) => (
+                              <React.Fragment key={i}>
+                                {line}
+                                {i < textContent.split("\n").length - 1 && (
+                                  <br />
+                                )}
+                              </React.Fragment>
+                            ))}
+                        </p>
+                        <div className="flex items-center gap-3 mt-2">
+                          <ShieldCheck
+                            size={24}
+                            className="text-[#D43820] flex-shrink-0"
+                          />
+                          <p className="font-bold text-[18px] text-[#D43820] leading-[1.563] text-right">
+                            حماية شاملة ضد الإباحية والقمار والتطبيقات الضارة على
+                            كل الأجهزة المتصلة بالراوتر
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {learnMoreLink?.linkData && (
+                      <Link
+                        href={learnMoreLink.linkData.href}
+                        className="flex items-center gap-3 text-[#E0462D] font-bold text-[18px] py-5 hover:opacity-90 transition-opacity"
+                      >
+                        <ShieldCheck
+                          size={24}
+                          className="text-[#E0462D] flex-shrink-0"
+                        />
+                        <span className="underline">
+                          {learnMoreLink.linkData.text.replace(" ➡️", "")}
+                        </span>
+                      </Link>
                     )}
                   </div>
                 );
@@ -357,7 +273,7 @@ const StepPage = ({
                 <div key={idx} className="w-full">
                   <Image
                     alt="screenshot"
-                    src={`/setupguide/${params.gen}/${params.device}/${params.step}_${item.data}.png`}
+                    src={`/setupguide/gen1/${params.device}/${params.step}_${item.data}.png`}
                     width={1088}
                     height={459}
                     className="w-full h-auto rounded-lg object-cover"
@@ -377,7 +293,7 @@ const StepPage = ({
           {/* Previous Button */}
           {currentStep > 1 ? (
             <Link
-              href={`/${params.gen}/setupguide/${params.device}/step${
+              href={`/setupguide/${params.device}/step${
                 currentStep - 1
               }`}
               className="flex items-center justify-center gap-3 border border-[#1A1818] text-[#1A1818] px-2 lg:px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
@@ -392,7 +308,7 @@ const StepPage = ({
           {/* Next Button */}
           {!isLastStep ? (
             <Link
-              href={`/${params.gen}/setupguide/${params.device}/step${
+              href={`/setupguide/${params.device}/step${
                 currentStep + 1
               }`}
               className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-2 lg:px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity"
@@ -428,7 +344,6 @@ export function generateStaticParams() {
     }
 
     return steps.map((step) => ({
-      gen: "gen1",
       device,
       step,
     }));

@@ -1,5 +1,5 @@
 import { genSetupGuideData } from "../../setupGuideData";
-import { deviceName } from "../../../genData";
+import { deviceName } from "@/app/[gen]/genData";
 import DeviceFeaturesCard from "./DeviceFeaturesCard";
 import DeviceHeroSection from "./DeviceHeroSection";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";

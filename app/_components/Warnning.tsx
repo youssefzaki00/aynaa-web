@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { supportEmail } from "@/importantLinks";
 
 function Warnning() {
   return (
@@ -6,13 +6,13 @@ function Warnning() {
       🚨 <span className="font-bold">تنبيه:</span> السيرفرات متوقفة حاليًا بسبب
       نقص التمويل🪙. يُرجى عدم استعمال الخدمة حتى إشعار آخر. ⚠️
       <br />
-      في حال واجهت أي مشكلة، يُرجى التواصل مع{" "}
-      <Link
-        href="/support"
+      في حال واجهت أي مشكلة، يُرجى التواصل عبر{" "}
+      <a
+        href={`mailto:${supportEmail}`}
         className="underline text-teal-600 hover:text-teal-800 font-semibold"
       >
-        الدعم الفني 🛠️
-      </Link>
+        {supportEmail}
+      </a>
       .
     </div>
   );

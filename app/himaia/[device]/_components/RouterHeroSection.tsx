@@ -2,11 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface RouterHeroSectionProps {
-  gen: string;
-}
-
-export default function RouterHeroSection({ gen }: RouterHeroSectionProps) {
+export default function RouterHeroSection() {
   return (
     <section
       className="w-full"
@@ -44,7 +40,7 @@ export default function RouterHeroSection({ gen }: RouterHeroSectionProps) {
 
           {/* Button */}
           <Link
-            href={`/${gen}/setupguide/router/step1`}
+            href="/setupguide/router/step1"
             className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#E0462D] to-[#A73826] text-white px-6 py-5 rounded-[8px] font-bold text-lg hover:opacity-90 transition-opacity w-fit"
           >
             <span>خطوات تفعيل الحمايه</span>
