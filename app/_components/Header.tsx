@@ -64,7 +64,7 @@ function Header() {
 
           {/* Burger Menu for mobile screens */}
           <button
-            className="md:hidden z-50 p-0 text-3xl"
+            className="md:hidden z-50 p-0 text-3xl cursor-pointer"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle Menu"
           >

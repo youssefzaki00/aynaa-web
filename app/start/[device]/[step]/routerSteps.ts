@@ -16,11 +16,7 @@ const routerSteps: Steps = {
 		step2: [
 			{
 				type: "text",
-				data: "عند دخولك لصفحة الراوتر، سيُطلب منك إدخال اسم المستخدم وكلمة المرور.",
-			},
-			{
-				type: "text",
-				data: "غالبًا ما تكون القيم الافتراضية:\n - (اسم المستخدم): admin \n - (كلمة المرور): admin \n جربهما أولًا.",
+				data: "أدخل اسم المستخدم وكلمة المرور. جرّب admin / admin أولًا، أو راجع الملصق على ظهر الراوتر.",
 			},
 			{
 				type: "screenshot",
@@ -28,38 +24,18 @@ const routerSteps: Steps = {
 			},
 			{
 				type: "text",
-				data: "إذا لم تنجح البيانات الافتراضية، ابحث عن بيانات الدخول المطبوعة على ظهر الراوتر أو العلبة واستخدمها.",
-			},
-			{
-				type: "screenshot",
-				data: 1,
-			},
-			{
-				type: "text",
-				data: "إذا لم تنجح حتى بعد ذلك، فهذا يعني أن بيانات الدخول قد تم تغييرها، ويجب عليك الرجوع إلى الشخص المسؤول عن الشبكة.",
+				data: "إذا لم تنجح، فاسأل الشخص المسؤول عن الشبكة في المنزل.",
 			},
 		],
 
 		step3: [
 			{
 				type: "text",
-				data: "ابحث يدويًا عن إعدادات الـ (Primary DNS) و (Secondary DNS) داخل صفحة الراوتر.",
+				data: "ابحث عن إعدادات DNS داخل لوحة الراوتر (LAN أو WAN أو Network Settings).",
 			},
 			{
 				type: "text",
-				data: "ستجد هذه الإعدادات غالبًا داخل أحد الأقسام التالية:\n• (إعدادات الشبكة المحلية)(LAN Settings)\n• (إعدادات الإنترنت)(WAN Settings)\n• (إعدادات الاتصال بالإنترنت)(Internet Settings)\n• (إعدادات الشبكة)(Network Settings)\n• (إعدادات توزيع العناوين) (DHCP Settings)",
-			},
-			{
-				type: "text",
-				data: "إذا لم تتمكن من العثور عليها، راجع دليل الراوتر أو ابحث عن إعدادات DNS داخل لوحة التحكم.",
-			},
-			{
-				type: "text",
-				data: "أدخل عناوين DNS التالية (CleanBrowsing):",
-			},
-			{
-				type: "text",
-				data: `✅ الحماية:\n - (Primary DNS): ${PrimaryDNS}\n - (Secondary DNS): ${SecondaryDNS}`,
+				data: `أدخل عناوين CleanBrowsing:\n - Primary DNS: ${PrimaryDNS}\n - Secondary DNS: ${SecondaryDNS}`,
 			},
 			{
 				type: "link",

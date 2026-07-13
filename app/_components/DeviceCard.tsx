@@ -2,18 +2,13 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { deviceParams } from "@/app/start/[device]/deviceData";
-import EnterYourNumber from "./EnterYourNumber";
 
-// Define a single color theme for all devices - changed to red
 const unifiedColor = "from-red-500 to-red-600 shadow-red-400";
 
 function DeviceCard({ device, soon }: deviceParams) {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  // Device descriptions in Arabic
   const deviceDescriptions: { [key: string]: string } = {
     windows: "تطبيق يحمي الكمبيوتر",
     router: "يحمي كل الأجهزة المتصلة به",
@@ -22,21 +17,16 @@ function DeviceCard({ device, soon }: deviceParams) {
     linux: "تطبيق يحمي اللينكس",
   };
 
+  const getDeviceLink = () => {
+    if (soon) return "/commingSoon";
+    if (device === "router") return "/start/router/step1";
+    return `/start/${device}`;
+  };
+
   return (
-    <>
-      <div
-        onClick={() => {
-          if (device === "router") {
-            setIsOpen(true);
-            return;
-          }
-          if (soon) {
-            router.push("/commingSoon");
-          } else {
-            router.push(`/start/${device}`);
-          }
-        }}
-        className={`relative group p-4 sm:p-5 md:p-6 lg:px-10 duration-300 transform border border-gray-300 text-gray-900 shadow-lg rounded-[20px] sm:rounded-[25px] md:rounded-[30px] w-[220px] sm:w-[250px] md:w-[289px] h-[220px] sm:h-[250px] md:h-[289px] flex flex-col gap-3 sm:gap-4 md:gap-5 justify-center items-center transition-all
+    <div
+      onClick={() => router.push(getDeviceLink())}
+        className={`relative group p-4 sm:p-5 md:p-6 lg:px-10 duration-300 transform border border-gray-300 text-gray-900 shadow-lg rounded-[20px] sm:rounded-[25px] md:rounded-[30px] w-[220px] sm:w-[250px] md:w-[289px] h-[220px] sm:h-[250px] md:h-[289px] flex flex-col gap-3 sm:gap-4 md:gap-5 justify-center items-center transition-all cursor-pointer
         ${
           soon
             ? "hidden"
@@ -87,9 +77,6 @@ function DeviceCard({ device, soon }: deviceParams) {
           </p>
         )}
       </div>
-
-      {isOpen && <EnterYourNumber isOpen={isOpen} onClose={() => setIsOpen(false)} />}
-    </>
   );
 }
 

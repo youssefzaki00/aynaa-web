@@ -1,8 +1,8 @@
 import { deviceName } from "@/app/deviceTypes";
+import { redirect } from "next/navigation";
 import setupGuideData, { SetupGuideData } from "../setupGuideData";
 import { deviceConfigs } from "./_components/deviceConfig";
 import DeviceDownloadPage from "./_components/DeviceDownloadPage";
-import RouterPage from "./_components/RouterPage";
 import deviceData, { deviceParams } from "./deviceData";
 
 async function Page({
@@ -29,7 +29,7 @@ async function Page({
     }
   }
   if (dev.device === "router") {
-    return <RouterPage setupGuide={setupGuide} device={dev} />;
+    redirect("/start/router/step1");
   }
 }
 export default Page;

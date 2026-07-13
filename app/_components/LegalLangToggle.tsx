@@ -32,7 +32,7 @@ export default function LegalLangToggle({ lang, onChange }: Props) {
       <button
         type="button"
         onClick={() => setLang("en")}
-        className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+        className={`px-3 py-1 rounded text-sm font-medium transition-colors cursor-pointer ${
           lang === "en"
             ? "bg-[#da442c] text-white"
             : "bg-gray-100 text-gray-600 hover:bg-gray-200"
@@ -43,7 +43,7 @@ export default function LegalLangToggle({ lang, onChange }: Props) {
       <button
         type="button"
         onClick={() => setLang("ar")}
-        className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+        className={`px-3 py-1 rounded text-sm font-medium transition-colors cursor-pointer ${
           lang === "ar"
             ? "bg-[#da442c] text-white"
             : "bg-gray-100 text-gray-600 hover:bg-gray-200"

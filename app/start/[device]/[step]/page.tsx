@@ -86,7 +86,7 @@ const StepPage = async ({
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-4">
           <Link
-            href={`/start/${device}`}
+            href={device === "router" ? "/start" : `/start/${device}`}
             className="font-normal text-[22px] text-[#D43820] leading-[1.563] hover:opacity-80 transition-opacity"
           >
             {deviceNames[device] || device}

@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaLinkedin, FaSquareWhatsapp } from "react-icons/fa6";
 import SupportUs from "./SupportUs";
 
 const FooterLinkList = ({
@@ -20,7 +19,7 @@ const FooterLinkList = ({
       {links.map(({ text, clickHandler }, index) => (
         <li key={index}>
           <button
-            className="py-[8px] font-semibold md:font-bold text-nav_link hover:text-Red text-lg lg:text-xl leading-normal transition-colors"
+            className="py-[8px] font-semibold md:font-bold text-nav_link hover:text-Red text-lg lg:text-xl leading-normal transition-colors cursor-pointer"
             onClick={(e) => {
               e.preventDefault();
               clickHandler();
@@ -88,11 +87,6 @@ const Footer = () => {
                 فلترة متقدمة للمحتوى وتثقيفًا حول السلامة الرقمية لحماية الأطفال
                 على الإنترنت.
               </p>
-
-              <div className="flex justify-center items-center gap-4 max-w-96">
-                <FaSquareWhatsapp size={40} />
-                <FaLinkedin size={40} />
-              </div>
             </div>
 
             <div className="flex md:flex-row flex-col gap-4 md:gap-16 lg:gap-24">

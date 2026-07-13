@@ -57,7 +57,7 @@ export default function SupportUs({ isOpen, onClose, close }: SupportUsProps) {
 						href={instapayPaymentLink}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full hover:bg-[#F8FAFC] transition-colors"
+						className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full hover:bg-[#F8FAFC] transition-colors cursor-pointer"
 					>
 						<div className="flex items-center gap-3">
 							<div className="relative shrink-0 w-10 h-10">
@@ -78,7 +78,7 @@ export default function SupportUs({ isOpen, onClose, close }: SupportUsProps) {
 					<button
 						type="button"
 						onClick={handleInstapayClick}
-						className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full hover:bg-[#F8FAFC] transition-colors"
+						className="flex items-center justify-between gap-4 border border-[#E2E8F0] rounded-xl p-4 w-full hover:bg-[#F8FAFC] transition-colors cursor-pointer"
 					>
 						<div className="flex items-center gap-3">
 							<div className="relative shrink-0 w-10 h-10">
@@ -118,7 +118,7 @@ export default function SupportUs({ isOpen, onClose, close }: SupportUsProps) {
 					<button
 						type="button"
 						onClick={handleCopyWallet}
-						className="shrink-0 p-1 text-[#94A3B8] hover:text-[#64748B] transition-colors"
+						className="shrink-0 p-1 text-[#94A3B8] hover:text-[#64748B] transition-colors cursor-pointer"
 						aria-label="نسخ رقم المحفظة"
 					>
 						{copied ? (
