@@ -9,9 +9,9 @@ export default function HeroSection() {
         {/* Right Side */}
         <div className="flex flex-col gap-6 w-full md:w-1/2">
           {/* Title */}
-          <p className="flex items-center gap-2 bg-red-100 px-4 py-3 rounded-xl w-fit font-normal text-red-500 text-sm">
+          {/* <p className="flex items-center gap-2 bg-red-100 px-4 py-3 rounded-xl w-fit font-normal text-red-500 text-sm">
             <Shield size={16} /> <span>موثوق به من قبل أكثر من 1000 عائلة</span>
-          </p>
+          </p> */}
 
           {/* Main Text */}
           <div className="space-y-10">

@@ -1,8 +1,10 @@
 import TermsPageClient from "@/app/_components/TermsPageClient";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Terms and Conditions | aynaa",
-  description: "Terms and Conditions for aynaa (عينا سلسبيلا)",
+export const metadata: Metadata = {
+  title: "الشروط والأحكام",
+  description:
+    "اطّلع على شروط وأحكام استخدام خدمات عينا سلسبيلا لحماية الإنترنت والعائلة.",
 };
 
 export default function TermsOfUsePage() {

@@ -1,7 +1,14 @@
 import setupGuideData, { SetupGuideData } from "@/app/start/setupGuideData";
 import OtherDevicesSection from "@/app/_components/OtherDevicesSection";
 import { CircleCheckBig, Shield } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "تم تفعيل الحماية",
+  description:
+    "مبروك! تم تفعيل حماية عينا سلسبيلا بنجاح. تعرف على الخطوات التالية وتفعيل الحماية على أجهزة أخرى.",
+};
 
 export default function CongratulationsPage() {
   const setupGuide: SetupGuideData = setupGuideData;

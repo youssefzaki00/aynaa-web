@@ -2,9 +2,15 @@ import SupportUsContent from "@/app/_components/SupportUsContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "ادعمنا | عينا سلسبيلا",
+	title: "ادعمنا",
 	description:
 		"ادعم مشروع عينا سلسبيلا لمساعدتنا على الاستمرار في توفير حماية مجانية للعائلات.",
+	openGraph: {
+		title: "ادعمنا | عينا سلسبيلا",
+		description:
+			"ادعم مشروع عينا سلسبيلا لمساعدتنا على الاستمرار في توفير حماية مجانية للعائلات.",
+		url: "/support",
+	},
 };
 
 export default function SupportPage() {

@@ -11,16 +11,16 @@ export type levelSetupValues = {
 const setupValuesData = {
   protection: {
     ar: {
-      title: "الحماية",
+      title: "تفاصيل الحماية",
     },
     subdomain: "adult-filter-dns",
     primary: PrimaryDNS,
     secondary: SecondaryDNS,
     categories: [
-      "الإباحية والمحتوى غير المناسب",
-      "القمار والمراهنات",
-      "التطبيقات الضارة",
-      "المواقع والتطبيقات على الشبكة بالكامل",
+      "الإباحية",
+      "القمار",
+      "البرامج غير اللائقة",
+      "المواقع العربية الغير لائقة",
     ],
   },
 };

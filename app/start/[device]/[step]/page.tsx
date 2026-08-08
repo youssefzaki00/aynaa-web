@@ -5,9 +5,29 @@ import {
   ChevronLeft,
   ShieldCheck,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
 import stepData, { Step, stepName } from "./stepData";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ step: stepName; device: deviceName }>;
+}): Promise<Metadata> {
+  const { step, device } = await params;
+  const deviceLabels: Record<string, string> = {
+    router: "الراوتر",
+    windows: "الويندوز",
+    android: "الأندرويد",
+  };
+  const label = deviceLabels[device] ?? device;
+  const stepNumber = step.replace("step", "");
+  return {
+    title: `دليل ${label} — الخطوة ${stepNumber}`,
+    description: `اتبع خطوات تفعيل حماية عينا سلسبيلا على ${label} لحجب المحتوى الضار عن عائلتك.`,
+  };
+}
 
 const StepPage = async ({
   params,
@@ -160,8 +180,8 @@ const StepPage = async ({
                             className="text-[#D43820] flex-shrink-0"
                           />
                           <p className="font-bold text-[18px] text-[#D43820] leading-[1.563] text-right">
-                            حماية شاملة ضد الإباحية والقمار والتطبيقات الضارة على
-                            كل الأجهزة المتصلة بالراوتر
+                            حماية شاملة من الإباحية والقمار والبرامج والمواقع غير
+                            اللائقة على كل الأجهزة المتصلة بالراوتر
                           </p>
                         </div>
                       </div>
