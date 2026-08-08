@@ -110,7 +110,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="bg-white py-16 lg:py-20">
+    <section id="faq" className="bg-white py-16 lg:py-20 scroll-mt-24">
       <div className="mx-auto max-w-4xl px-4">
         <h2 className="mb-10 text-center text-3xl font-bold lg:text-4xl">
           الأسئلة الشائعة

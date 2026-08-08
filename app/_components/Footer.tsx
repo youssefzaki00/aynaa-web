@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import SupportUs from "./SupportUs";
 
 const FooterLinkList = ({
   title,
@@ -35,7 +33,6 @@ const FooterLinkList = ({
 
 const Footer = () => {
   const router = useRouter();
-  const [isSupportOpen, setIsSupportOpen] = useState(false);
 
   const FOOTER_CONTENT = {
     logo: {
@@ -56,7 +53,7 @@ const Footer = () => {
         },
         {
           text: "ادعمنا",
-          clickHandler: () => setIsSupportOpen(true),
+          clickHandler: () => router.push("/support"),
         },
         {
           text: "سياسة الخصوصية",
@@ -104,12 +101,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-
-      <SupportUs
-        close={true}
-        isOpen={isSupportOpen}
-        onClose={() => setIsSupportOpen(false)}
-      />
     </footer>
   );
 };
